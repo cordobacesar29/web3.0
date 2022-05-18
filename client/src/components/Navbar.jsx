@@ -23,9 +23,26 @@ export const Navbar = () => {
   }, []);
   return (
     widthDisplay < 480 ? (
-      <Flex color="white" p="1rem" alignContent="space-between" width="100%">
-        <HiMenuAlt4 fontSize={28} color="white" cursor="pointer" onClick={() => setToggleMenu(!toggleMenu)} />
-        <Flex bg="#2952e3" fontSize={16} cursor="pointer" rounded="full" px="1rem" mx="1rem" _hover={{background:"#2546bd"}}>
+      <Flex 
+        color="white" 
+        p="1rem" 
+        alignContent="space-between" 
+        width="100%"
+      >
+        <HiMenuAlt4 
+          fontSize={28} 
+          color="white" 
+          cursor="pointer" 
+          onClick={() => setToggleMenu(!toggleMenu)} 
+        />
+        <Flex 
+          bg="#2952e3" 
+          fontSize={16} 
+          cursor="pointer" 
+          rounded="full" 
+          px="1rem" mx="1rem" 
+          _hover={{background:"#2546bd"}}
+        >
           Login
         </Flex>
         {toggleMenu && widthDisplay < 480 && (
@@ -33,20 +50,19 @@ export const Navbar = () => {
             display="row" 
             color="white" 
             position="absolute" 
-            top={0} right={0} p="1rem" w="60vw"
-            bg="blackAlpha.800"
+            top={0} right={0} p="1rem"
+            w="60vw" h={window.innerHeight / 2}
+            bg="blackAlpha.600"
           >
-             <AiOutlineClose 
-               onClick={() => setToggleMenu(false)} 
-             />  
-             {titles.map((item, index)=> (
-             <NavbarItem key={item + index} title={item} my="1rem" />
-             ))}
+            <AiOutlineClose onClick={() => setToggleMenu(false)} />  
+            {titles.map((item, index)=> (
+              <NavbarItem key={item + index} title={item} my="1rem" />
+            ))}
            </Flex>
          )}
       </Flex>
     ) : (
-      <Flex justify="space-between" alignItems="center" p=".5rem 1rem">
+      <Flex justify="space-around" alignItems="center" p=".5rem 1rem">
         <div>
           <img src={logo} alt="logo" className="w-32 pointer-cursor" />
         </div>
@@ -54,7 +70,15 @@ export const Navbar = () => {
           {titles.map((item, index)=> (
            <NavbarItem key={item + index} title={item} />
           ))}
-          <Flex color="white" bg="#2952e3" fontSize={16} cursor="pointer" rounded="full" px="1rem" mx="1rem" _hover={{background:"#2546bd"}}>
+          <Flex 
+            color="white" 
+            bg="#2952e3" 
+            fontSize={16} 
+            cursor="pointer" 
+            rounded="full" 
+            px="1rem" mx="1rem" 
+            _hover={{background:"#2546bd"}}
+          >
             Login
           </Flex>
         </Flex>
