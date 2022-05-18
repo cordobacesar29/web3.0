@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { HiMenuAlt4 } from 'react-icons/hi';
 import {AiOutlineClose} from 'react-icons/ai';
-import {Flex} from "@chakra-ui/react";
+import {Flex, Button} from "@chakra-ui/react";
 import logo from '../../images/logo.png';
 
 const titles = ["Market", "Exchange", "Tutorials", "Wallets"];
@@ -62,25 +62,23 @@ export const Navbar = () => {
          )}
       </Flex>
     ) : (
-      <Flex justify="space-around" alignItems="center" p=".5rem 1rem">
+      <Flex justify="space-around" alignItems="center" p="1rem" cursor="pointer">
         <div>
-          <img src={logo} alt="logo" className="w-32 pointer-cursor" />
+          <img src={logo} alt="logo" width="200px"/>
         </div>
         <Flex color='white' justify="center" alignItems="center" >
           {titles.map((item, index)=> (
            <NavbarItem key={item + index} title={item} />
           ))}
-          <Flex 
-            color="white" 
-            bg="#2952e3" 
-            fontSize={16} 
-            cursor="pointer" 
-            rounded="full" 
-            px="1rem" mx="1rem" 
-            _hover={{background:"#2546bd"}}
-          >
-            Login
-          </Flex>
+         <Button 
+          border='2px'
+          borderColor='red.400'
+          colorScheme="blackAlpha"
+          color="whiteAlpha.600"
+          mx="3rem"
+        >
+          Login
+        </Button>
         </Flex>
       </Flex>
     )
